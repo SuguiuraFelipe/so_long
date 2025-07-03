@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: fsuguiur <fsuguiur@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/07/03 19:27:00 by fsuguiur          #+#    #+#              #
-#    Updated: 2025/07/03 19:27:02 by fsuguiur         ###   ########.fr        #
+#    Created: 2025/07/03 21:20:56 by fsuguiur          #+#    #+#              #
+#    Updated: 2025/07/03 21:21:10 by fsuguiur         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,24 +23,12 @@ SRC      = src/main.c \
 			src/render.c \
 			src/game.c \
 			src/input.c \
-        	src/cleanup.c\
+        	src/cleanup.c \
             get_next_line/get_next_line.c \
             get_next_line/get_next_line_utils.c
 
-OBJ      = objs/main.o \
-            objs/read_map.o \
-            objs/check_args.o \
-            objs/map_utils.o \
-            objs/validation.o \
-            objs/validation_elements.o \
-			objs/flood_fill_utils.o \
-			objs/flood_fill.o \
-			objs/render.o \
-			objs/game.o \
-			objs/input.o \
-		    objs/cleanup.o\
-            objs/get_next_line.o \
-            objs/get_next_line_utils.o
+OBJDIR   = obj/
+OBJ      = $(SRC:%.c=$(OBJDIR)%.o)
 
 CC       = cc
 CFLAGS = -Wall -Wextra -Werror -I include -I mlx -I/opt/homebrew/include
@@ -55,8 +43,8 @@ endif
 
 all: $(NAME)
 
-$(NAME): mlx/libmlx.a $(OBJDIR) $(OBJS)
-	@cc $(CFLAGS) $(OBJS) $(MLX_FLAGS) -o $(NAME)
+$(NAME): mlx/libmlx.a $(OBJDIR) $(OBJ)
+	@cc $(CFLAGS) $(OBJ) $(MLX_FLAGS) -o $(NAME)
 
 mlx/libmlx.a:
 	mkdir -p mlx

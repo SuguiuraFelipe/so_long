@@ -6,7 +6,7 @@
 /*   By: fsuguiur <fsuguiur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 17:12:10 by fsuguiur          #+#    #+#             */
-/*   Updated: 2025/07/03 18:30:04 by fsuguiur         ###   ########.fr       */
+/*   Updated: 2025/07/03 21:28:14 by fsuguiur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,9 @@ void start_game(char **map)
         g->cols * TILE, g->rows * TILE, "so_long");
     load_images(g);
     render_map(g);
-    mlx_key_hook(g->win_ptr, handle_input, g);
+    mlx_do_key_autorepeatoff(g->mlx_ptr);
+    mlx_hook(g->win_ptr, 2, 1L<<0, handle_input, g);
+    mlx_hook(g->win_ptr, 3, 1L<<1, handle_input, g);
     mlx_hook(g->win_ptr, 17, 0L, handle_destroy, g);
     mlx_loop(g->mlx_ptr);
 }

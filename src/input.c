@@ -39,18 +39,19 @@ int handle_input(int keycode, t_game *g)
     int nx = g->player_x;
     int ny = g->player_y;
 
-    if (keycode == 53)
+    if (keycode == 53 || keycode == 65307)
         cleanup_game(g);
-    else if (keycode == 13)
+    else if (keycode == 13 || keycode == 65362 || keycode == 119)
         ny--;
-    else if (keycode == 1)
+    else if (keycode == 1  || keycode == 65364 || keycode == 115)
         ny++;
-    else if (keycode == 0)
+    else if (keycode == 0  || keycode == 65361 || keycode == 97)
         nx--;
-    else if (keycode == 2)
+    else if (keycode == 2  || keycode == 65363 || keycode == 100)
         nx++;
     else
         return (0);
     move_player(g, nx, ny);
     return (0);
 }
+
