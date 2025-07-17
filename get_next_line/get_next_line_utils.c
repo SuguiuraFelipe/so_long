@@ -6,7 +6,7 @@
 /*   By: fsuguiur <fsuguiur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 17:49:27 by fsuguiur          #+#    #+#             */
-/*   Updated: 2025/05/09 17:22:58 by fsuguiur         ###   ########.fr       */
+/*   Updated: 2025/07/17 17:24:37 by fsuguiur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ char	*copy_to_line(char *line, char *buffer)
 
 void	move_and_finish(char *buffer)
 {
-	size_t j;
-	size_t i;
+	size_t	j;
+	size_t	i;
 
 	j = 0;
 	i = 0;

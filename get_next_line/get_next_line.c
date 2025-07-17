@@ -6,7 +6,7 @@
 /*   By: fsuguiur <fsuguiur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 17:49:25 by fsuguiur          #+#    #+#             */
-/*   Updated: 2025/07/01 21:55:10 by fsuguiur         ###   ########.fr       */
+/*   Updated: 2025/07/17 17:05:13 by fsuguiur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	*get_next_line(int fd)
 {
-	static char buffer[BUFFER_SIZE + 1];
-	char *line;
-	int readbytes;
+	static char	buffer[BUFFER_SIZE + 1];
+	char		*line;
+	int			readbytes;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
@@ -36,5 +36,5 @@ char	*get_next_line(int fd)
 		line = copy_to_line(line, buffer);
 		move_and_finish(buffer);
 	}
-    return (line);
+	return (line);
 }

@@ -6,7 +6,7 @@
 /*   By: fsuguiur <fsuguiur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 20:58:14 by fsuguiur          #+#    #+#             */
-/*   Updated: 2025/07/01 21:53:33 by fsuguiur         ###   ########.fr       */
+/*   Updated: 2025/07/17 17:09:57 by fsuguiur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	ft_strncmp(const char *s1, const char *s2, int n)
 {
-	int	i;
+	int				i;
 	unsigned char	*str1;
 	unsigned char	*str2;
 
@@ -34,16 +34,15 @@ static int	ft_strncmp(const char *s1, const char *s2, int n)
 	return (0);
 }
 
-void check_args(int ac, char **av)
+void	check_args(int ac, char **av)
 {
-    int len;
+	int	len;
 
-    if (ac != 2)
-        write(1, "invalid ac\n", 12);
-    len = ft_strlen(av[1]);
-    if (len < 5)
-        write(1, "Map file must be at least 4 characters\n", 40);
-    if (ft_strncmp(av[1] + len - 4, ".ber", 4) != 0)
-        write(1, "Map file must end in .ber\n", 27);
-
+	if (ac != 2)
+		write(1, "invalid ac\n", 12);
+	len = ft_strlen(av[1]);
+	if (len < 5)
+		write(1, "Map file must be at least 4 characters\n", 40);
+	if (ft_strncmp(av[1] + len - 4, ".ber", 4) != 0)
+		write(1, "Map file must end in .ber\n", 27);
 }
