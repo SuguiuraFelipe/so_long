@@ -6,7 +6,7 @@
 /*   By: fsuguiur <fsuguiur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:31:05 by fsuguiur          #+#    #+#             */
-/*   Updated: 2025/07/17 18:14:44 by fsuguiur         ###   ########.fr       */
+/*   Updated: 2025/07/24 17:22:39 by fsuguiur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,15 +56,14 @@ static int	count_lines(const char *path)
 char	**read_map(const char *path)
 {
 	int		fd;
-	int		lines;
 	int		i;
 	char	**map;
 	char	*line;
 	
-	lines = count_lines(path);
-	if (lines < 3)
+	i = count_lines(path);
+	if (i < 3)
 		erro("Map too small");
-	map = malloc(sizeof(char *) * (lines + 1));
+	map = malloc(sizeof(char *) * (i + 1));
 	if (!map)
 		exit(EXIT_FAILURE);
 	fd = open(path, O_RDONLY);
@@ -72,13 +71,12 @@ char	**read_map(const char *path)
 		erro("Opening map");
 	i = 0;
 	line = get_next_line(fd);
-	while (line != NULL)
+	while (line)
 	{
 		trim_nl(line);
 		map[i++] = line;
 		line = get_next_line(fd);
 	}
 	map[i] = NULL;
-	close(fd);
-	return (map);
+	return (close(fd), map);
 }
